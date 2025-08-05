@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .toggle-input {
+  display: none; /* Hide the default checkbox */
+}
+
+.toggle-label {
+  position: relative;
+  display: flex;
+  width: 150px; /* Adjust as needed */
+  height: 40px; /* Adjust as needed */
+  background-color: #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.toggle-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  z-index: 1; /* Ensure text is above the slider */
+}
+
+.toggle-text-cat {
+  color: #333; /* Default color for Cat when not active */
+}
+
+.toggle-text-dog {
+  color: white; /* Default color for Dog when not active */
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #007bff; /* Active color */
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+/* When checkbox is checked (Dog is active) */
+.toggle-input:checked + .toggle-label .toggle-slider {
+  transform: translateX(100%);
+}
+
+.toggle-input:checked + .toggle-label .toggle-text-cat {
+  color: white; /* Cat text color when Dog is active */
+}
+
+.toggle-input:checked + .toggle-label .toggle-text-dog {
+  color: #333; /* Dog text color when Dog is active */
+}
+
+.pet-content {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+.container1 {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .product-card1 {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Adjust width as needed */
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .product-card1 img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        .rating {
+            color: #ffc107; /* Star color */
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        .product-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .price {
+            font-size: 1.1em;
+            color: #e74c3c; /* Red color for price */
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .add-to-cart-btn {
+            background-color: #e74c3c; /* Red button */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #c0392b; /* Darker red on hover */
+        }
+  </style>
+</head>
+<body>
+  <div class="toggle-container">
+  <input type="checkbox" id="petToggle" class="toggle-input">
+  <label for="petToggle" class="toggle-label">
+    <span class="toggle-text toggle-text-cat">Cat</span>
+    <span class="toggle-text toggle-text-dog">Dog</span>
+    <span class="toggle-slider"></span>
+  </label>
+</div>
+
+<div id="catContent" class="pet-content">
+  <!-- Content related to cats -->
+ <div class="container1" style="margin-top: 30px;">
+        <div class="product-card1">
+            <img src="images/Cat/1.jpg" alt="Pet Toy">
+                    <div class="product-title">Coffee Brown 8month Kitty</div>
+                           <div class="price">Rs.6000</div>   
+                    <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+
+        <div class="product-card1">
+            <img src="images/Cat/8.jpg" alt="Dog Hoodie">
+            <div class="product-title">Milky White 6 month Kitty</div>
+                    <div class="price">Rs.12000</div>
+            <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+
+        <div class="product-card1">
+            <img src="images/cat/7.jpg" alt="Pet Sofa">
+            
+            <div class="product-title">Mix of Brown And White 2 month Kitty</div>
+                    <div class="price">Rs.16000</div>
+            <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+    </div>
+    <div class="container1" style="margin-top: 30px;">
+        <div class="product-card1">
+            <img src="images/Cat/grey.jpeg" alt="Pet Toy">
+                    <div class="product-title">Persian Gray 2year Cat</div>
+                     <div class="price">Rs.10000</div> 
+                    <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+
+        <div class="product-card1">
+            <img src="images/Cat/black.jpg" alt="Dog Hoodie">
+            <div class="product-title">Full Black Persian 3 Year Cat</div>
+             <div class="price">Rs.11000</div>
+            <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+
+        <div class="product-card1">
+            <img src="images/Cat/1.jpg" alt="Pet Sofa">
+            
+            <div class="product-title">Milky Brown Persian 2years Cat</div>
+             <div class="price">Rs.12000</div>
+            <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+    </div>
+</div>
+
+<div id="dogContent" class="pet-content hidden">
+  <!-- Content related to dogs -->
+  <div class="container1" style="margin-top: 30px;">
+        <div class="product-card1">
+            <img src="images/Dog/52.jpg" alt="Pet Toy">
+                    <div class="product-title">1 Month Labrador Dog</div>
+                      <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+
+        <div class="product-card1">
+            <img src="images/Dog/54.jpg" alt="Dog Hoodie">
+            <div class="product-title">1 Month Labrador Brown and White Dog</div>
+            <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+
+        <div class="product-card1">
+            <img src="images/Dog/55.jpg" alt="Pet Sofa">
+            
+            <div class="product-title">3 Month Pug Dog</div>
+            
+            <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+    </div>
+    <div class="container1" style="margin-top: 30px;">
+        <div class="product-card1">
+            <img src="images/Dog/51.jpg" alt="Pet Toy">
+                    <div class="product-title">Pomerian Girl Full Whiie Dog 2 Years</div>
+                     <div class="price">Rs.10000</div> 
+                    <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+
+        <div class="product-card1">
+            <img src="images/Dog/6.jpg" alt="Dog Hoodie">
+            <div class="product-title">Brown Zidzoo 3 Month Dog</div>
+             <div class="price">Rs.11000</div>
+            <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+
+        <div class="product-card1">
+            <img src="images/Dog/56.jpg" alt="Pet Sofa">
+            
+            <div class="product-title">Pomerian Boy Full Black & White Dog</div>
+             <div class="price">Rs.12000</div>
+            <button class="add-to-cart-btn">Adopt Me</button>
+        </div>
+    </div>
+</div>
+
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const petToggle = document.getElementById('petToggle');
+  const catContent = document.getElementById('catContent');
+  const dogContent = document.getElementById('dogContent');
+
+  // Initial state based on checkbox
+  if (petToggle.checked) {
+    catContent.classList.add('hidden');
+    dogContent.classList.remove('hidden');
+  } else {
+    catContent.classList.remove('hidden');
+    dogContent.classList.add('hidden');
+  }
+
+  petToggle.addEventListener('change', function() {
+    if (this.checked) {
+      // Dog selected
+      catContent.classList.add('hidden');
+      dogContent.classList.remove('hidden');
+    } else {
+      // Cat selected
+      catContent.classList.remove('hidden');
+      dogContent.classList.add('hidden');
+    }
+  });
+});
+</script>
+</body>
+</html>
